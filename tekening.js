@@ -1,33 +1,62 @@
-var xCar; 
-var yCar; 
-var xSize = 400;
-var ySize = 180;
-var wheelSize;
+var xGuy;
+var speed;
+ 
+
 
 function setup() {
-  createCanvas(xSize, ySize); 
-  xCar = 50;
-  yCar = 100;
-  wheelSize = 24;
+	createCanvas(400, 300); 
+	xGuy = 100;
+	speed = 2
 }
 
 function draw() {
-    background(220); //Één cijfer geeft grijswaarden
-    drawCar(xCar, yCar, wheelSize);
-    xCar += 1;
-};
 
-function drawCar(xCar, yCar, wheelSize){
-    noStroke(); 
-    fill(255, 220, 115); 
-    rect(xCar, yCar, 110, 20); 
-    rect(xCar + 10, yCar-22, 70, 40);
-    // Wielen
-    stroke(255); 
-    strokeWeight(2); 
-    fill(12, 66, 66);
-    ellipse(xCar + 25, yCar + 21, wheelSize, wheelSize); 
-    ellipse(xCar + 80, yCar + 21, wheelSize, wheelSize);
-    stroke(0);
-    line(0, yCar + 21 + wheelSize/2, width, yCar + 21 + wheelSize/2); 
+  document.body.style.backgroundColor = "#33ccff";
+
+
+ellipseMode(CENTER);
+rectMode(CENTER);
+background(255, 255, 0);
+  line(xGuy - 1, 150, xGuy - 40, 139);
+  line(xGuy + 1, 150, xGuy + 40, 139);
+
+  fill(102, 51, 0);
+  ellipse(xGuy, 130, 30, 12);
+
+fill(0, 204, 0);
+ellipse(xGuy - 17, 110, 20, 22);
+ellipse(xGuy + 17, 110, 20, 22);
+ 
+  line(0, 235, 500, 235)
+  line(0, 237, 500, 237)
+  line(0, 236, 500, 236)
+  line(0, 238, 500, 238)
+  line(0, 239, 500, 239)
+  line(0, 240, 500, 240)
+  line(0, 243, 500, 243)
+  line(0, 242, 500, 242)
+  line(0, 241, 500, 241)
+  
+fill(255, 255, 255);
+rect(xGuy, 150, 10, 150);
+
+  line(xGuy - 1, 150, xGuy - 40, 139);
+  line(xGuy + 1, 150, xGuy + 40, 139);
+
+  fill(102, 51, 0);
+  ellipse(xGuy, 130, 30, 12);
+
+fill(0, 204, 0);
+ellipse(xGuy - 17, 110, 20, 22);
+ellipse(xGuy + 17, 110, 20, 22);
+
+  line(xGuy - 21, 150, xGuy - 60, 139);
+  line(xGuy + 21, 150, xGuy + 60, 139);
+  xGuy += 1;
+  
+          if (xGuy > width || xGuy < 0){ 
+        speed = -speed;
+    }
+    xGuy += speed;
 }
+	
